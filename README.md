@@ -9,5 +9,7 @@ The inputs and output need to be *synchronized* and *masked* using **registers**
 - [ ] Descrive the circuit using VHDL;
 - [ ] Create a *test beach* for the **logical simulation**;
 - [ ] Synthesize the circuit;
-- [ ] Create a *test beach* for the **post-synthesis simulation**;
+- [ ] Run a *test beach* for the **post-synthesis simulation**;
+- [ ] Circuit implementation;
+- [ ] Run a *test beach* for the **post-implementation simulation**;
 - [ ] Create a **documentation** for the circuit;
