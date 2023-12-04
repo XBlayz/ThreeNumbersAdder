@@ -1,4 +1,6 @@
 
+*.str
 Vivado_project/vivado.jou
 Vivado_project/vivado.log
-Vivado_project/vivado_pid15116.str
+Vivado_project/.Xil/
+Vivado_project/Vivado_project.cache/
