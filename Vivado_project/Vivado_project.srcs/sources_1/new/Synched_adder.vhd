@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: UNICAL
+-- Engineer: Stefano Scarcelli, Michele De Fusco
 -- 
 -- Create Date: 04.12.2023 15:31:55
--- Design Name: 
--- Module Name: Synched_adder - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
+-- Design Name: ---
+-- Module Name: Synched_adder - Version1
+-- Project Name: ThreeNumbersAdder
+-- Target Devices: xc7z020clg400-2
+-- Tool Versions: 2023.2
+-- Description: Adder with input registers
 -- 
--- Dependencies: 
+-- Dependencies: Adder.vhd, Register_n.vhd
 -- 
--- Revision:
+-- Revision: 1
 -- Revision 0.01 - File Created
--- Additional Comments:
+-- Additional Comments: ---
 -- 
 ----------------------------------------------------------------------------------
 
@@ -22,36 +22,24 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity Synched_adder is
     generic (n : integer := 8);
-    Port ( A : in STD_LOGIC_VECTOR (n-1 downto 0);
-           B : in STD_LOGIC_VECTOR (n-1 downto 0);
-           R : out STD_LOGIC_VECTOR (n downto 0);
-           CLK : in STD_LOGIC;
-           Clear : in STD_LOGIC);
+    Port (A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
+          R : out STD_LOGIC_VECTOR (n downto 0);
+          CLK, Clear : in STD_LOGIC;);
 end Synched_adder;
 
 architecture Version1 of Synched_adder is
     component Adder is
         generic (n : integer := 8);
-        Port ( A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
-               R : out STD_LOGIC_VECTOR (n downto 0));
+        Port (A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
+              R : out STD_LOGIC_VECTOR (n downto 0));
     end component;
     component Register_n is
         generic (n : integer := 8);
-        Port ( CLK : in STD_LOGIC;
-               Clear : in STD_LOGIC;
-               D : in STD_LOGIC_VECTOR (n-1 downto 0);
-               Q : out STD_LOGIC_VECTOR (n-1 downto 0));
+        Port (CLK, Clear : in STD_LOGIC;
+              D : in STD_LOGIC_VECTOR (n-1 downto 0);
+              Q : out STD_LOGIC_VECTOR (n-1 downto 0));
     end component;
     signal Ra, Rb: STD_LOGIC_VECTOR (n-1 downto 0);
 begin
