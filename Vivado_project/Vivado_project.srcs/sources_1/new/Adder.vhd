@@ -12,8 +12,8 @@
 -- 
 -- Dependencies: None
 -- 
--- Revision: 1
--- Revision 0.01 - File Created
+-- Revision: 2
+-- Revision 1.0 - Implementation
 -- Additional Comments: ---
 -- 
 ----------------------------------------------------------------------------------
@@ -33,10 +33,10 @@ architecture Version1 of Adder is
     signal carry : STD_LOGIC_VECTOR (n+1 downto 0);
 begin
     p <= (A(n-1) xor B(n-1)) & (A xor B);
-    g <= (A(n-1) xor B(n-1)) & (A and B);
+    g <= (A(n-1) and B(n-1)) & (A and B);
 
     carry(0) <= '0';
-    carry(n+1 downto 1) <= (g or p) and carry (n downto 0);
+    carry(n+1 downto 1) <= g or (p and carry(n downto 0));
     R <= p xor carry(n downto 0);
 
 end Version1;
