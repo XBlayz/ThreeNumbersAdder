@@ -52,7 +52,7 @@ architecture Version1 of Three_Adder is
               R : out STD_LOGIC_VECTOR (n downto 0));
     end component;
     signal Rc: STD_LOGIC_VECTOR (n-1 downto 0);
-    signal Rs,S,RCext: STD_LOGIC_VECTOR (n downto 0);
+    signal Rs,RCext: STD_LOGIC_VECTOR (n downto 0);
     signal RSF: STD_LOGIC_VECTOR (n+1 downto 0);
 begin
     RegC: Register_n generic map(n) port map(CLK, Clear, C, Rc);
