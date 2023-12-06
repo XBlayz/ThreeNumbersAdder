@@ -27,7 +27,7 @@ entity Three_Adder is
     Port (A : in STD_LOGIC_VECTOR (n-1 downto 0);
           B : in STD_LOGIC_VECTOR (n-1 downto 0);
           C : in STD_LOGIC_VECTOR (n-1 downto 0);
-          R : in STD_LOGIC_VECTOR (n downto 0);
+          R : out STD_LOGIC_VECTOR (n+1 downto 0);
           CLK : in STD_LOGIC;
           Clear : in STD_LOGIC);
 end Three_Adder;
@@ -51,10 +51,18 @@ architecture Version1 of Three_Adder is
         Port (A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
               R : out STD_LOGIC_VECTOR (n downto 0));
     end component;
-    signal Rc, Rs: STD_LOGIC_VECTOR (n-1 downto 0);
+    signal Rc: STD_LOGIC_VECTOR (n-1 downto 0);
+    signal Rs,S,RCext: STD_LOGIC_VECTOR (n downto 0);
+    signal RSF: STD_LOGIC_VECTOR (n+1 downto 0);
 begin
-    RegC: Register_n generic map(n) port map(CLK, Clear, A, Rc);
-    RegS: Register_n generic map(n) port map(CLK, Clear, B, Rs);
+    RegC: Register_n generic map(n) port map(CLK, Clear, C, Rc);
+    
+    SA1:  Synched_adder generic map(n) port map(A,B,Rs,CLK,Clear);
+    
+    RCext<=Rc(n-1) & Rc;
+    SA2:  Synched_adder generic map(n+1) port map(Rs,RCext,RSF,CLK,Clear);
+    
+    RegSF:Register_n generic map(n+2) port map(CLK, Clear, RSF, R);
 
 
 end Version1;
