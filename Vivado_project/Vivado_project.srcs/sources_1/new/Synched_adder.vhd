@@ -26,7 +26,7 @@ entity Synched_adder is
     generic (n : integer := 8);
     Port (A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
           R : out STD_LOGIC_VECTOR (n downto 0);
-          CLK, Clear : in STD_LOGIC;);
+          CLK, Clear : in STD_LOGIC);
 end Synched_adder;
 
 architecture Version1 of Synched_adder is
@@ -46,6 +46,6 @@ begin
     RegA: Register_n generic map(n) port map(CLK, Clear, A, Ra);
     RegB: Register_n generic map(n) port map(CLK, Clear, B, Rb);
 
-    Adder: Adder generic map(n) port map(Ra, Rb, R);
+    Adder1: Adder generic map(n) port map(Ra, Rb, R);
 
 end Version1;
