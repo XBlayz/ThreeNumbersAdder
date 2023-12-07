@@ -8,9 +8,8 @@ Vivado_project_v1/Vivado_project_v1.runs/
 Vivado_project_v2/.Xil/
 Vivado_project_v2/Vivado_project_v2.cache/
 Vivado_project_v2/Vivado_project_v2.runs/
-Doc/Latex_workspace/Documentation.log
-Doc/Latex_workspace/Documentation.aux
-Doc/Latex_workspace/Documentation.fdb_latexmk
-Doc/Latex_workspace/Documentation.fls
-Doc/Latex_workspace/Documentation.synctex.gz
-Doc/Latex_workspace/Documentation.toc
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
