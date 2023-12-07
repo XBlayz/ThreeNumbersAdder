@@ -7,9 +7,13 @@ The inputs and output need to be *synchronized* and *masked* using **registers**
 
 ## Task to perform
 - [ ] Descrive the circuit using VHDL;
-- [ ] Create a *test beach* for the **logical simulation**;
+- [ ] Create a *test bench* for the **logical simulation**;
 - [ ] Synthesize the circuit;
-- [ ] Run a *test beach* for the **post-synthesis simulation**;
+- [ ] Run a *test bench* for the **post-synthesis simulation**;
 - [ ] Circuit implementation;
-- [ ] Run a *test beach* for the **post-implementation simulation**;
+- [ ] Run a *test bench* for the **post-implementation simulation**;
 - [ ] Create a **documentation** for the circuit;
+
+## Implementation
+1. ***Version 1*** - Ripple carry adder;
+2. ***Version 2*** - Carry save adder;
