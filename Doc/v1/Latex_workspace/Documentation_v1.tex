@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+
+% Package
+\usepackage{graphicx} % Add images package
+\usepackage{listings} % Add code file package
+
+% Document settings
+\graphicspath{{../images}}
+\setlength{\parindent}{0pt}
+
+% Documentation title
+\title{Sommatore a 3 input (v1)}
+\author{Stefano Scarcelli \& Michele De Fusco}
+\date{01 Dic 2023}
+
+
+% Document
+\begin{document}
+% Cover
+\maketitle
+\newpage
+
+% Indice
+\tableofcontents
+\newpage
+
+% Document body
+
+\section{Analisi progettuale}
+    \subsection{Analisi preliminare}
+        L'obbiettivo è quello di costruire un circuito in grado di sommare 3 numeri a \textit{n-bit} (\textit{2's complements}) e restituirne il risultato. Sia gli input che gli output devono essere sincronizzati tramite l'uso di registri.
+
+        L'idea di base è quella di usare due \textbf{Ripple carry} \textit{parametrici} in cascata tra di loro per eseguire il calcolo desiderato $A+B+C=R$.
+
+\section{Implementazione}
+    % ...
+
+\section{Testing}
+    % ...
+
+\end{document}
