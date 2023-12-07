@@ -1,9 +1,10 @@
 
 *.str
-Vivado_project/vivado_20240.jou
-Vivado_project/vivado_20240.log
-Vivado_project/vivado.jou
-Vivado_project/vivado.log
-Vivado_project/.Xil/
-Vivado_project/Vivado_project.cache/
-Vivado_project/Vivado_project.runs/
+*.jou
+*.log
+Vivado_project_v1/.Xil/
+Vivado_project_v1/Vivado_project_v1.cache/
+Vivado_project_v1/Vivado_project_v1.runs/
+Vivado_project_v2/.Xil/
+Vivado_project_v2/Vivado_project_v2.cache/
+Vivado_project_v2/Vivado_project_v2.runs/
