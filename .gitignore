@@ -1,5 +1,7 @@
 
 *.str
+Vivado_project/vivado_20240.jou
+Vivado_project/vivado_20240.log
 Vivado_project/vivado.jou
 Vivado_project/vivado.log
 Vivado_project/.Xil/
