@@ -31,9 +31,54 @@
         L'obbiettivo è quello di costruire un circuito in grado di sommare 3 numeri a \textit{n-bit} (\textit{2's complements}) e restituirne il risultato. Sia gli input che gli output devono essere sincronizzati tramite l'uso di registri.
 
         L'idea di base è quella di usare due \textbf{Ripple carry} \textit{parametrici} in cascata tra di loro per eseguire il calcolo desiderato $A+B+C=R$.
+    
+    \subsection{Struttura del progetto}
+        L'idea alla base dell'implementazione è quella di inserire in pipeline i due moduli \textbf{sommatori} per eseguire prima la somma $A+B$ e successivamente $(A+B)+C$.
+
+        Questa implementazione porta all'inserimento di (in totale) di 6 \textbf{registri}, 2 in ingresso ad ogni adder, uno in aggiunta all'input $C$ per salvare il risultato per la seconda operazione di somma e uno in uscita per salvare il risultato dell'operazione complessiva (richiesto dal progetto).
+
+        Il primo ritardo per riceve un risultato coerente è di 2 colpi di clock mentre il delay per ricevere i risultati successivi al primo è di solo 1 colpo di clock.
 
 \section{Implementazione}
-    % ...
+    L'implementazione si basa sulla definizione di una struttura gerarchica di componenti, partendo dalla definizione comportamentale dei componenti elementari (\textbf{Adder n-bit} e \textbf{Register n-bit}) per poi andare a comporre (tramite 2 livelli di astrazione, \textbf{Synched adder} e in fine l'elemento principale \textbf{Three adder (main)}) la struttura del progetto.
+
+    \subsection{Adder n-bit}
+        L'implementazione dell'\textbf{Adder n-bit} segue la descrizione comportamentale tramite \textbf{Ripple carry} parametrico usando i segnali \textit{propagate} ($P$) e \textit{generate} ($G$).
+
+        \subsubsection{Codice VHDL}
+            % Codice VHDL
+            
+        \subsubsection{Sintesi}
+            % Schemi sintetizzati
+
+    \subsection{Register n-bit}
+        L'implementazione dell'\textbf{Register n-bit} segue la descrizione comportamentale classica con memorizzazione a \textit{fronti di salita}.
+        
+        Il \textbf{registro} implementa in più un segnale di \textit{clear} (asincrono) attivo alto.
+
+        \subsubsection{Codice VHDL}
+            % Codice VHDL
+            
+        \subsubsection{Sintesi}
+            % Schemi sintetizzati
+
+    \subsection{Synched adder}
+        % ...
+
+        \subsubsection{Codice VHDL}
+            % Codice VHDL
+        
+        \subsubsection{Sintesi}
+            % Schemi sintetizzati
+
+    \subsection{Three adder (main)}
+        % ...
+
+        \subsubsection{Codice VHDL}
+            % Codice VHDL
+        
+        \subsubsection{Sintesi}
+            % Schemi sintetizzati
 
 \section{Testing}
     % ...
