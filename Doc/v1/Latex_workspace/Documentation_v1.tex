@@ -35,7 +35,7 @@
     \subsection{Struttura del progetto}
         L'idea alla base dell'implementazione è quella di inserire in pipeline i due moduli \textbf{sommatori} per eseguire prima la somma $A+B$ e successivamente $(A+B)+C$.
 
-        Questa implementazione porta all'inserimento di (in totale) di 6 \textbf{registri}, 2 in ingresso ad ogni adder, uno in aggiunta all'input $C$ per salvare il risultato per la seconda operazione di somma e uno in uscita per salvare il risultato dell'operazione complessiva (richiesto dal progetto).
+        Questa implementazione porta all'inserimento di (in totale) di 6 \textbf{registri}, 2 in ingresso ad ogni adder, uno in aggiunta all'input $C$ per salvare il risultato per la seconda operazione di somma e uno in uscita per salvare il risultato dell'operazione complessiva (richiesto dalle specifiche del progetto).
 
         Il primo ritardo per riceve un risultato coerente è di 2 colpi di clock mentre il delay per ricevere i risultati successivi al primo è di solo 1 colpo di clock.
 
@@ -63,7 +63,9 @@
             % Schemi sintetizzati
 
     \subsection{Synched adder}
-        % ...
+        Questo è un componente intermedio che abbiamo impostato per poi costruire il circuito completo.
+
+        Consiste in un \textbf{Adder n-bit} con 2 \textbf{registri} collocati agli input di esso.
 
         \subsubsection{Codice VHDL}
             % Codice VHDL
@@ -72,7 +74,7 @@
             % Schemi sintetizzati
 
     \subsection{Three adder (main)}
-        % ...
+        Il circuito finale comprende invece l'uso di 2 \textbf{Synched adder} e 2 \textbf{registri} aggiuntivi, uno collocato tra l'input $C$ del circuito e il secondo ingresso del secondo \textbf{Synched adder} (usato come buffer per salvare il valore di $C$ nella pipeline) e un'altro tra il risultato dell'operazione e l'output del circuito (come richiesto dalle specifiche del progetto).
 
         \subsubsection{Codice VHDL}
             % Codice VHDL
