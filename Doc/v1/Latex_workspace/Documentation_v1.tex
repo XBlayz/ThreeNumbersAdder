@@ -46,7 +46,7 @@
         L'implementazione dell'\textbf{Adder n-bit} segue la descrizione comportamentale tramite \textbf{Ripple carry} parametrico usando i segnali \textit{propagate} ($P$) e \textit{generate} ($G$).
 
         \subsubsection{Codice VHDL}
-            % Codice VHDL
+            \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sources_1/new/Adder.vhd}
             
         \subsubsection{Sintesi}
             % Schemi sintetizzati
@@ -57,7 +57,7 @@
         Il \textbf{registro} implementa in più un segnale di \textit{clear} (asincrono) attivo alto.
 
         \subsubsection{Codice VHDL}
-            % Codice VHDL
+           \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sources_1/new/Register_n.vhd}
             
         \subsubsection{Sintesi}
             % Schemi sintetizzati
@@ -68,7 +68,7 @@
         Consiste in un \textbf{Adder n-bit} con 2 \textbf{registri} collocati agli input di esso.
 
         \subsubsection{Codice VHDL}
-            % Codice VHDL
+            \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sources_1/new/Synched_adder.vhd}
         
         \subsubsection{Sintesi}
             % Schemi sintetizzati
@@ -77,7 +77,7 @@
         Il circuito finale comprende invece l'uso di 2 \textbf{Synched adder} e 2 \textbf{registri} aggiuntivi, uno collocato tra l'input $C$ del circuito e il secondo ingresso del secondo \textbf{Synched adder} (usato come buffer per salvare il valore di $C$ nella pipeline) e un'altro tra il risultato dell'operazione e l'output del circuito (come richiesto dalle specifiche del progetto).
 
         \subsubsection{Codice VHDL}
-            % Codice VHDL
+            \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sources_1/new/Three_Adder.vhd}
         
         \subsubsection{Sintesi}
             % Schemi sintetizzati
