@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_arith.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -48,12 +49,27 @@ architecture Version1 of Sim_Add is
     end component;
     Signal IA,IB,IC : STD_LOGIC_VECTOR (n-1 downto 0);
     Signal ORR : STD_LOGIC_VECTOR (n+1 downto 0);
-    signal Iclk, Iclear : STD_LOGIC;
+    signal clk, clear : STD_LOGIC;
+    constant T : time := 5 ms;
 begin
-    TA : Three_Adder port map(IA,IB,IC,ORR,Iclk,Iclear);
-    process
-    begin
-        for va in  -16 to 15 loop
-            for vb in  -16 to 15 loop
-    end process
+    TA : Three_Adder port map(IA,IB,IC,ORR,clk,clear);
+    process begin
+    clk <= '0';
+    wait for T/2;
+    clk <= '1';
+    wait for T/2;
+    end process;
+    process begin
+    clear <= '1';
+    wait until falling_edge(clk);
+    clear <= '0';
+    
+    wait for 4 ms;
+    
+    IA<=(others=>'1');
+    IB<=(others=>'1');
+    IC<=(others=>'1');
+    wait for T;
+    
+    end process;
 end Version1;
