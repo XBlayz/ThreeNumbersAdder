@@ -6,12 +6,12 @@ Implement a circuit in VHDL capable of **adding 3 n-bit numbers** (parametric ci
 The inputs and output need to be *synchronized* and *masked* using **registers**.
 
 ## Task to perform
-- [ ] Descrive the circuit using VHDL;
-- [ ] Create a *test bench* for the **logical simulation**;
-- [ ] Synthesize the circuit;
-- [ ] Run a *test bench* for the **post-synthesis simulation**;
-- [ ] Circuit implementation;
-- [ ] Run a *test bench* for the **post-implementation simulation**;
+- [X] Descrive the circuit using VHDL;
+- [X] Create a *test bench* for the **logical simulation**;
+- [X] Synthesize the circuit;
+- [X] Run a *test bench* for the **post-synthesis simulation**;
+- [X] Circuit implementation;
+- [X] Run a *test bench* for the **post-implementation simulation**;
 - [ ] Create a **documentation** for the circuit;
 
 ## Implementation
