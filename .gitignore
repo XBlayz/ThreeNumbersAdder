@@ -13,6 +13,5 @@ Vivado_project_v2/Vivado_project_v2.runs/
 *.fls
 *.synctex.gz
 *.toc
-Vivado_project_v1/Vivado_project_v1.xpr
-Vivado_project_v1/Vivado_project_v1.hw/Vivado_project_v1.lpr
-Vivado_project_v1/Vivado_project_v1.xpr
+*.xpr
+*.lpr
