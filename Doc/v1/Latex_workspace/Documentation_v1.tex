@@ -109,20 +109,60 @@
 
         \subsubsection{Analisi del Time constrain}
             Con l'implementazione del codice abbiamo verificato (\textit{Timing summary routed}) che il \textbf{Time constrain} fosse valido, valutando di aver inserito un periodo di clock di superiore rispetto al minimo tollerabile dal circuito di \textbf{1.958ns}.
-        
+            \newpage
+
+        \subsection{Risorse}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.8]{Risorse_1.png}
+                \caption{Risorse usate dai vari componenti.}
+            \end{figure}
+
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.8]{Risorse_2.png}
+                \caption{Riassunto delle risorse utilizzate.}
+            \end{figure}
+            \newpage
+
+            \subsubsection{Potenza}
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[scale=0.8]{Power.png}
+                    \caption{Riassunto del report della potenza del circuito.}
+                \end{figure}
+
 \section{Testing}
     Per il test abbiamo optato ad una analisi parziale eseguendo somme di numeri che potessero stressare al massimo i componenti circuitali per verificarne il corretto funzionamento.
+    \newpage
 
     \subsection{Codice test test-bench}
         \lstinputlisting[language=VHDL, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sim_1/new/Sim_Add.vhd}
 
     \subsection{Risultati}
-        I risultati della simulazione post implementativa confermano il funzionamento del circuito come previsto.
+        I risultati delle simulazioni confermano il funzionamento del circuito come previsto.
 
-        \begin{figure}[ht]
-            \centering
-            \includegraphics[scale=0.55]{Test.png}
-            \caption{Grafico temporale simulazione post implementazione.}
-        \end{figure}
+        \subsubsection{Simulazione comportamentale}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.55]{Test_RTL.png}
+                \caption{Grafico temporale simulazione comportamentale.}
+            \end{figure}
+            \newpage
+
+        \subsubsection{Simulazione post sintesi}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.55]{Test_Sin.png}
+                \caption{Grafico temporale simulazione post sintesi.}
+            \end{figure}
+            \newpage
+
+        \subsubsection{Simulazione post implementazione}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.55]{Test.png}
+                \caption{Grafico temporale simulazione post implementazione.}
+            \end{figure}
 
 \end{document}
