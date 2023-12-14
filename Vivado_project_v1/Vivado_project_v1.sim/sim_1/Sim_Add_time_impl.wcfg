@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Sim_Add_time_impl.wdb" id="1">
+         <top_modules>
+            <top_module name="Sim_Add" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="175.001 ns"></ZoomEndTime>
+      <Cursor1Time time="165.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="124"></NameColumnWidth>
+      <ValueColumnWidth column_width="163"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/Sim_Add/IA" type="array">
+      <obj_property name="ElementShortName">IA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IA[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sim_Add/IB" type="array">
+      <obj_property name="ElementShortName">IB[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IB[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sim_Add/IC" type="array">
+      <obj_property name="ElementShortName">IC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IC[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sim_Add/ORR" type="array">
+      <obj_property name="ElementShortName">ORR[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ORR[9:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sim_Add/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Sim_Add/clear" type="logic">
+      <obj_property name="ElementShortName">clear</obj_property>
+      <obj_property name="ObjectShortName">clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/glbl/GSR" type="logic">
+      <obj_property name="ElementShortName">GSR</obj_property>
+      <obj_property name="ObjectShortName">GSR</obj_property>
+   </wvobject>
+</wave_config>
