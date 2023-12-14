@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Vivado_project_v1.srcs/sources_1/new/Adder.vhd" \
+"../../../../Vivado_project_v1.srcs/sources_1/new/Register_n.vhd" \
+"../../../../Vivado_project_v1.srcs/sources_1/new/Synched_adder.vhd" \
+"../../../../Vivado_project_v1.srcs/sources_1/new/Three_Adder.vhd" \
+"../../../../Vivado_project_v1.srcs/sim_1/new/Sim_Add.vhd" \
+
+# Do not sort compile order
+nosort
