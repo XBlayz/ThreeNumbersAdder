@@ -99,16 +99,16 @@
                 \caption{Circuito principale.}
             \end{figure}
 
-    \subsection{Time constrain}
-        In più abbiamo aggiunto un \textit{time constrain} sul segnale di clock con un periodo di \textbf{5ns}.
+    \subsection{Time constraint}
+        In più abbiamo aggiunto un \textit{time constraint} sul segnale di clock con un periodo di \textbf{5ns}.
 
         \begin{lstlisting}[basicstyle=\footnotesize]
             create_clock -period 5.000 -name main_clock
             -waveform {0.000 2.500} [get_nets CLK]
         \end{lstlisting}
 
-        \subsubsection{Analisi del Time constrain}
-            Con l'implementazione del codice abbiamo verificato (\textit{Timing summary routed}) che il \textbf{Time constrain} fosse valido, valutando di aver inserito un periodo di clock di superiore rispetto al minimo tollerabile dal circuito di \textbf{1.958ns}.
+        \subsubsection{Analisi del Time constraint}
+            Con l'implementazione del codice abbiamo verificato (\textit{Timing summary routed}) che il \textbf{Time constraint} fosse valido, valutando di aver inserito un periodo di clock di superiore rispetto al minimo tollerabile dal circuito di \textbf{1.958ns}.
             \newpage
 
         \subsection{Risorse}
