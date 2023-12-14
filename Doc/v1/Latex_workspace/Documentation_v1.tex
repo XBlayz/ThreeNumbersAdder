@@ -37,7 +37,7 @@
 
         Questa implementazione porta all'inserimento di (in totale) di 6 \textbf{registri}, 2 in ingresso ad ogni adder, uno in aggiunta all'input $C$ per salvare il risultato per la seconda operazione di somma e uno in uscita per salvare il risultato dell'operazione complessiva (richiesto dalle specifiche del progetto).
 
-        Il primo ritardo per riceve un risultato coerente è di 2 colpi di clock mentre il delay per ricevere i risultati successivi al primo è di solo 1 colpo di clock.
+        Il primo ritardo per riceve un risultato coerente è di 3 colpi di clock mentre il delay per ricevere i risultati successivi al primo è di solo 1 colpo di clock.
 
 \section{Implementazione}
     L'implementazione si basa sulla definizione di una struttura gerarchica di componenti, partendo dalla definizione comportamentale dei componenti elementari (\textbf{Adder n-bit} e \textbf{Register n-bit}) per poi andare a comporre (tramite 2 livelli di astrazione, \textbf{Synched adder} e in fine l'elemento principale \textbf{Three adder (main)}) la struttura del progetto.
@@ -98,9 +98,31 @@
                 \includegraphics[scale=0.55]{main.png}
                 \caption{Circuito principale.}
             \end{figure}
-        \newpage
+
+    \subsection{Time constrain}
+        In più abbiamo aggiunto un \textit{time constrain} sul segnale di clock con un periodo di \textbf{5ns}.
+
+        \begin{lstlisting}[basicstyle=\footnotesize]
+            create_clock -period 5.000 -name main_clock
+            -waveform {0.000 2.500} [get_nets CLK]
+        \end{lstlisting}
+
+        \subsubsection{Analisi del Time constrain}
+            Con l'implementazione del codice abbiamo verificato (\textit{Timing summary routed}) che il \textbf{Time constrain} fosse valido, valutando di aver inserito un periodo di clock di superiore rispetto al minimo tollerabile dal circuito di \textbf{1.958ns}.
         
 \section{Testing}
-    % ...
+    Per il test abbiamo optato ad una analisi parziale eseguendo somme di numeri che potessero stressare al massimo i componenti circuitali per verificarne il corretto funzionamento.
+
+    \subsection{Codice test test-bench}
+        \lstinputlisting[language=VHDL, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sim_1/new/Sim_Add.vhd}
+
+    \subsection{Risultati}
+        I risultati della simulazione post implementativa confermano il funzionamento del circuito come previsto.
+
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[scale=0.55]{Test.png}
+            \caption{Grafico temporale simulazione post implementazione.}
+        \end{figure}
 
 \end{document}
