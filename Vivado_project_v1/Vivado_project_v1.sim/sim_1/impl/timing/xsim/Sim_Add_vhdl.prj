@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../../Vivado_project_v1.srcs/sim_1/new/Sim_Add.vhd" \
-
-# Do not sort compile order
-nosort

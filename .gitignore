@@ -2,12 +2,6 @@
 *.str
 *.jou
 *.log
-Vivado_project_v1/.Xil/
-Vivado_project_v1/Vivado_project_v1.cache/
-Vivado_project_v1/Vivado_project_v1.runs/
-Vivado_project_v2/.Xil/
-Vivado_project_v2/Vivado_project_v2.cache/
-Vivado_project_v2/Vivado_project_v2.runs/
 *.aux
 *.fdb_latexmk
 *.fls
@@ -15,3 +9,13 @@ Vivado_project_v2/Vivado_project_v2.runs/
 *.toc
 *.xpr
 *.lpr
+Vivado_project_v1/.Xil/
+Vivado_project_v1/Vivado_project_v1.cache/
+Vivado_project_v1/Vivado_project_v1.runs/
+Vivado_project_v1/Vivado_project_v1.hw/
+Vivado_project_v1/Vivado_project_v1.sim/
+Vivado_project_v2/.Xil/
+Vivado_project_v2/Vivado_project_v2.cache/
+Vivado_project_v2/Vivado_project_v2.runs/
+Vivado_project_v1/Vivado_project_v2.hw/
+Vivado_project_v1/Vivado_project_v2.sim/
