@@ -12,7 +12,7 @@ The inputs and output need to be *synchronized* and *masked* using **registers**
 - [X] Run a *test bench* for the **post-synthesis simulation**;
 - [X] Circuit implementation;
 - [X] Run a *test bench* for the **post-implementation simulation**;
-- [ ] Create a **documentation** for the circuit;
+- [X] Create a **documentation** for the circuit;
 
 ## Implementation
 1. ***Version 1*** - Ripple carry adder;
