@@ -2,15 +2,15 @@
 -- Company: UNICAL
 -- Engineer: Stefano Scarcelli, Michele De Fusco
 -- 
--- Create Date: 04.12.2023 15:46:04
+-- Create Date: 26.12.2023 17:10:58
 -- Design Name: ---
--- Module Name: Three_Adder - Version1
+-- Module Name: Three_Adder - Version2
 -- Project Name: ThreeNumbersAdder
 -- Target Devices: xc7z020clg400-2
 -- Tool Versions: 2023.2
 -- Description: Main file of the project
 -- 
--- Dependencies: Register_n.vhd, Synched_adder.vhd
+-- Dependencies: Register_n.vhd
 -- 
 -- Revision: 1
 -- Revision 1.0 - Implementation
@@ -32,34 +32,22 @@ entity Three_Adder is
           Clear : in STD_LOGIC);
 end Three_Adder;
 
-architecture Version1 of Three_Adder is
-    component Synched_adder
-        generic (n : integer := 8);
-        Port (A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
-              R : out STD_LOGIC_VECTOR (n downto 0);
-              CLK, Clear : in STD_LOGIC);
-    end component;
+architecture Version2 of Three_Adder is
     component Register_n
         generic (n : integer := 8);
         Port (CLK, Clear : in STD_LOGIC;
               D : in STD_LOGIC_VECTOR (n-1 downto 0);
               Q : out STD_LOGIC_VECTOR (n-1 downto 0));
     end component;
-    component Adder
-        generic (n : integer := 8);
-        Port (A, B : in STD_LOGIC_VECTOR (n-1 downto 0);
-              R : out STD_LOGIC_VECTOR (n downto 0));
-    end component;
-    signal Rc: STD_LOGIC_VECTOR (n-1 downto 0);
-    signal Rs,RCext: STD_LOGIC_VECTOR (n downto 0);
-    signal RSF: STD_LOGIC_VECTOR (n+1 downto 0);
+    signal Ra, Rb, Rc: STD_LOGIC_VECTOR (n-1 downto 0);
+    signal Rs: STD_LOGIC_VECTOR (n downto 0);
 begin
-    RCext <= Rc(n-1) & Rc;
+    RegA: Register_n generic map(n) port map(CLK, Clear, A, Ra);
+    RegB: Register_n generic map(n) port map(CLK, Clear, B, Rb);
     RegC: Register_n generic map(n) port map(CLK, Clear, C, Rc);
     
-    SA1:  Synched_adder generic map(n) port map(A, B, Rs, CLK, Clear);
-    SA2:  Synched_adder generic map(n+1) port map(Rs, RCext, RSF, CLK, Clear);
+    -- DA FARE: Circuito di somma (Ra+Rb+Rc=Rs)
     
-    RegSF:Register_n generic map(n+2) port map(CLK, Clear, RSF, R);
+    RegS: Register_n generic map(n+2) port map(CLK, Clear, Rs, R);
 
-end Version1;
+end Version2;
