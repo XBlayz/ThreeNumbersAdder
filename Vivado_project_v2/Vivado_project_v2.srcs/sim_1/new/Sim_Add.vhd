@@ -29,7 +29,7 @@ end Sim_Add;
 
 architecture Version1 of Sim_Add is
     component Three_Adder
-        --generic (n : integer := 8);
+        -- generic (n : integer := 8);
         Port (A : in STD_LOGIC_VECTOR (n-1 downto 0);
               B : in STD_LOGIC_VECTOR (n-1 downto 0);
               C : in STD_LOGIC_VECTOR (n-1 downto 0);
@@ -51,7 +51,7 @@ begin
     end process;
 
     process begin
-        -- wait for 100 ns;
+        wait for 100 ns;
         
         clear <= '1';
         wait for T;

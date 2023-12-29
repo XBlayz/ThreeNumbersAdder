@@ -29,14 +29,37 @@
 \section{Analisi progettuale}
     \subsection{Analisi preliminare}
         L'obbiettivo è quello di costruire un circuito in grado di sommare 3 numeri a \textit{n-bit} (\textit{2's complements}) e restituirne il risultato. Sia gli input che gli output devono essere sincronizzati tramite l'uso di registri.
-
-        L'idea è quella di usare un sommatore 
-        % #TODO: Nome tipo di sommatore.
     
     \subsection{Struttura del progetto}
         La struttura del progetto sarà fatta da un modulo che implementa i \textbf{registri} e un'altro dove viene implementato il circuito finale (\textbf{Three adder}).
 
 \section{Implementazione}
+    \subsection{FullAdder}
+        L'implementazione dell'\textbf{FullAdder} segue l'implementazione classica.
+
+        \subsubsection{Codice VHDL}
+           \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v2/Vivado_project_v2.srcs/sources_1/new/FullAdder.vhd}
+            
+        \subsubsection{Sintesi}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.45]{FullAdder.png}
+                \caption{\textbf{FullAdder}.}
+            \end{figure}
+
+    \subsection{Adder n-bit}
+        L'implementazione dell'\textbf{Adder n-bit} è la medesima del progetto precedente (v1).
+
+        \subsubsection{Codice VHDL}
+           \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v2/Vivado_project_v2.srcs/sources_1/new/Adder.vhd}
+            
+        \subsubsection{Sintesi}
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[scale=0.45]{Adder.png}
+                \caption{\textbf{FullAdder}.}
+            \end{figure}
+
     \subsection{Register n-bit}
         L'implementazione dell'\textbf{Register n-bit} è la medesima del progetto precedente (v1).
 
@@ -51,15 +74,15 @@
             \end{figure}
 
     \subsection{Three adder (main)}
-        % TODO
+        L'implementazione del modulo principale assembla i vari componenti precedentemente definiti in modo adeguato per eseguire la somma.
 
         \subsubsection{Codice VHDL}
-            \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sources_1/new/Three_Adder.vhd}
+            \lstinputlisting[language=vhdl, basicstyle=\footnotesize]{../../../Vivado_project_v2/Vivado_project_v2.srcs/sources_1/new/Three_Adder.vhd}
         
         \subsubsection{Sintesi}
             \begin{figure}[ht]
                 \centering
-                \includegraphics[scale=0.45]{main.png}
+                \includegraphics[scale=0.8]{main.png}
                 \caption{Circuito principale.}
             \end{figure}
 
@@ -72,12 +95,12 @@
         \end{lstlisting}
 
         \subsubsection{Analisi del Time constraint}
-            Con l'implementazione del codice abbiamo verificato (\textit{Timing summary routed}) che il \textbf{Time constraint} fosse valido, valutando di aver inserito un periodo di clock di superiore rispetto al minimo tollerabile dal circuito di \textbf{1.958ns}, rispetto dai \textbf{1.958ns} del progetto precedente (v1).
+            Con l'implementazione del codice abbiamo verificato (\textit{Timing summary routed}) che il \textbf{Time constraint} fosse valido, valutando di aver inserito un periodo di clock di superiore rispetto al minimo tollerabile dal circuito di \textbf{2.219ns}, rispetto dai \textbf{1.958ns} del progetto precedente (v1).
 
         \subsection{Risorse}
             \begin{figure}[ht]
                 \centering
-                \includegraphics[scale=0.8]{Risorse_1.png}
+                \includegraphics[scale=0.75]{Risorse_1.png}
                 \caption{Risorse usate dai vari componenti.}
             \end{figure}
 
@@ -86,6 +109,7 @@
                 \includegraphics[scale=0.8]{Risorse_2.png}
                 \caption{Riassunto delle risorse utilizzate.}
             \end{figure}
+            \newpage
 
             \subsubsection{Potenza}
                 \begin{figure}[ht]
@@ -98,7 +122,7 @@
     Per il test abbiamo deciso di usare il medesimo test del progetto precedente (v1).
 
     \subsection{Codice test test-bench}
-        \lstinputlisting[language=VHDL, basicstyle=\footnotesize]{../../../Vivado_project_v1/Vivado_project_v1.srcs/sim_1/new/Sim_Add.vhd}
+        \lstinputlisting[language=VHDL, basicstyle=\footnotesize]{../../../Vivado_project_v2/Vivado_project_v2.srcs/sim_1/new/Sim_Add.vhd}
 
     \subsection{Risultati}
         I risultati delle simulazioni confermano il funzionamento del circuito come previsto.
