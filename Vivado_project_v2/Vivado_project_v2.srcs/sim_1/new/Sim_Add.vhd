@@ -12,8 +12,8 @@
 -- 
 -- Dependencies: Three_Adder.vhd
 -- 
--- Revision: 2
--- Revision 1.0 - Implementation
+-- Revision: 1
+-- Revision 2.0 - Implementation
 -- Additional Comments: ---
 -- 
 ----------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ begin
     end process;
 
     process begin
-        wait for 100 ns;
+        -- wait for 100 ns;
         
         clear <= '1';
         wait for T;
@@ -83,7 +83,7 @@ begin
         wait for T;
         
         -- Waiting results
-        wait for T*2;
+        wait for T;
     end process;
 
 end Version1;

@@ -12,7 +12,7 @@
 -- 
 -- Dependencies: Register_n.vhd
 -- 
--- Revision: 1
+-- Revision: 3
 -- Revision 1.0 - Implementation
 -- Additional Comments: ---
 -- 
@@ -39,8 +39,6 @@ architecture Version2 of Three_Adder is
               D : in STD_LOGIC_VECTOR (n-1 downto 0);
               Q : out STD_LOGIC_VECTOR (n-1 downto 0));
     end component;
-    signal Ra, Rb, Rc: STD_LOGIC_VECTOR (n-1 downto 0);
-    signal Rs: STD_LOGIC_VECTOR (n downto 0);
     
     component FullAdder
     Port ( a : in STD_LOGIC;
@@ -51,29 +49,30 @@ architecture Version2 of Three_Adder is
     end component;
     
     component Adder is
-    generic (n: integer :=8);
-    Port ( clk : in STD_LOGIC;
-           clear : in STD_LOGIC;
-           a : in STD_LOGIC_VECTOR (n-1 downto 0);
-           b : in STD_LOGIC_VECTOR (n-1 downto 0);
-           r : out STD_LOGIC_VECTOR (n downto 0));
+    generic (n: integer := 8);
+    Port ( A : in STD_LOGIC_VECTOR (n-1 downto 0);
+           B : in STD_LOGIC_VECTOR (n-1 downto 0);
+           R : out STD_LOGIC_VECTOR (n downto 0));
     end component;
     
+    signal Ra, Rb, Rc: STD_LOGIC_VECTOR (n-1 downto 0);
+    signal Rs: STD_LOGIC_VECTOR (n+1 downto 0);
+
     signal vr, sp: STD_LOGIC_VECTOR(n downto 0);
-    signal a1, b1, c1, vr1, sp1: STD_LOGIC_VECTOR(n-1 downto 0);
+    signal vr1, sp1: STD_LOGIC_VECTOR(n-1 downto 0);
 begin
     RegA: Register_n generic map(n) port map(CLK, Clear, A, Ra);
     RegB: Register_n generic map(n) port map(CLK, Clear, B, Rb);
     RegC: Register_n generic map(n) port map(CLK, Clear, C, Rc);
     
-    -- DA FARE: Circuito di somma (Ra+Rb+Rc=Rs)
     s1: for i in 0 to (n-1) generate
-        FAi: FullAdder port map(a1(i), b1(i), c1(i), vr(i), sp(i));
+        FAi: FullAdder port map(Ra(i), Rb(i), Rc(i), vr1(i), sp1(i));
     end generate;
     
-    sp <= sp1(n-1) & sp1;
-    vr <= vr1 & '0';
+    sp <= sp1(n-1)&sp1;
+    vr <= vr1&'0';
     
-    Sum: Adder generic map(n+1) port map(CLK, Clear, vr, sp, R);
+    Sum: Adder generic map(n+1) port map(vr, sp, Rs);
 
+    RegS: Register_n generic map(n+2) port map(CLK, Clear, Rs, R);
 end Version2;
